@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 5% 5% 0 5%;
+  width: 90%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.user-image {
+  width: 15%;
+  height: 5%;
+  border-radius: 0%;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+.user-details {
+  width: 85%;
+  height: 5%;
+  flex: 1;
+  border: 1px solid black;
+}
+
+.username {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.item-count {
+  font-size: 0.9rem;
+  margin: 0 1% 0 0;
+  color: #888;
+  text-align: right;
+}
+
+.bio,
+.user-post {
+  padding: 1% 1% 0.2% 1%;
+  border: 1px solid black;
+  margin-bottom: 1%;
+}
+
+.bio {
+  height: 15rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Form */
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.form-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.login-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1%;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form .field {
+  margin: 10px 0;
+}
+
+.login-form label {
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form .login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-form .login-button:hover {
+  background-color: #0056b3;
+}
+
+.login-form a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.login-form .text-center {
+  text-align: center;
+}
+
+.error-message {
+  color: #f00;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.login-form .form-element {
+  margin: 10px 0;
+}
