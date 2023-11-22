@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
     user { nil }
-    icon { "MyString" }
+    icon { 'MyString' }
   end
 end

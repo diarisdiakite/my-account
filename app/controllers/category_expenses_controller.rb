@@ -1,5 +1,5 @@
 class CategoryExpensesController < ApplicationController
-  before_action :set_category_expense, only: %i[ show edit update destroy ]
+  before_action :set_category_expense, only: %i[show edit update destroy]
 
   # GET /category_expenses or /category_expenses.json
   def index
@@ -7,8 +7,7 @@ class CategoryExpensesController < ApplicationController
   end
 
   # GET /category_expenses/1 or /category_expenses/1.json
-  def show
-  end
+  def show; end
 
   # GET /category_expenses/new
   def new
@@ -16,8 +15,7 @@ class CategoryExpensesController < ApplicationController
   end
 
   # GET /category_expenses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /category_expenses or /category_expenses.json
   def create
@@ -25,7 +23,9 @@ class CategoryExpensesController < ApplicationController
 
     respond_to do |format|
       if @category_expense.save
-        format.html { redirect_to category_expense_url(@category_expense), notice: "Category expense was successfully created." }
+        format.html do
+          redirect_to category_expense_url(@category_expense), notice: 'Category expense was successfully created.'
+        end
         format.json { render :show, status: :created, location: @category_expense }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,9 @@ class CategoryExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @category_expense.update(category_expense_params)
-        format.html { redirect_to category_expense_url(@category_expense), notice: "Category expense was successfully updated." }
+        format.html do
+          redirect_to category_expense_url(@category_expense), notice: 'Category expense was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @category_expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +54,20 @@ class CategoryExpensesController < ApplicationController
     @category_expense.destroy
 
     respond_to do |format|
-      format.html { redirect_to category_expenses_url, notice: "Category expense was successfully destroyed." }
+      format.html { redirect_to category_expenses_url, notice: 'Category expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category_expense
-      @category_expense = CategoryExpense.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def category_expense_params
-      params.require(:category_expense).permit(:expense_id, :category_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category_expense
+    @category_expense = CategoryExpense.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def category_expense_params
+    params.require(:category_expense).permit(:expense_id, :category_id)
+  end
 end

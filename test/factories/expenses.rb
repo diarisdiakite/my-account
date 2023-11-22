@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :expense do
     user { nil }
-    name { "MyString" }
+    name { 'MyString' }
     amount { 1 }
   end
 end
