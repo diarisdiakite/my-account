@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   # Create a show action
   def show
     @user = User.find(params[:id])
-    @recipes = @user.recipes.limit(3)
+    @categories = @user.categories.limit(3)
+    # Other logic as needed
+    p @user
+    p @categories
   end
 
   private

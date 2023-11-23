@@ -1,9 +1,13 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_expense, only: %i[show edit update destroy]
-
+  load_and_authorize_resource
+  
   # GET /expenses or /expenses.json
   def index
-    @expenses = Expense.all
+    @user = User.find(params[:user_id])
+    @categories = @user.categories
+    @category = @categories.find(params[:category_id]) if params[:category_id].present?
   end
 
   # GET /expenses/1 or /expenses/1.json
@@ -11,7 +15,10 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/new
   def new
-    @expense = Expense.new
+    @user = User.find(params[:user_id])
+    @category = @user.categories.find(params[:category_id])
+    @categories = Category.all
+    @expense = @category.expenses.build(author: @user)
   end
 
   # GET /expenses/1/edit
@@ -19,13 +26,21 @@ class ExpensesController < ApplicationController
 
   # POST /expenses or /expenses.json
   def create
-    @expense = Expense.new(expense_params)
-
+    @user = User.find(params[:user_id])
+    @category = @user.categories.find(params[:category_id])
+    @expense = @category.expenses.new(expense_params)
+  
+    # Explicitly set author_id
+    @expense.author_id = @user.id
+  
+    @expense.category_ids = Array(params[:expense][:category_ids]).reject(&:empty?)
+  
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expense_url(@expense), notice: 'Expense was successfully created.' }
+        format.html { redirect_to user_category_expenses_path(@user, @category), notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
+        @categories = @user.categories.all
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @expense.errors, status: :unprocessable_entity }
       end
@@ -64,6 +79,6 @@ class ExpensesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def expense_params
-    params.require(:expense).permit(:user_id, :name, :amount)
+    params.require(:expense).permit(:author_id, :name, :amount, category_ids: [])
   end
 end
