@@ -28,11 +28,15 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
 
     user ||= User.new # Guest user
+    puts "User: #{user.inspect}"
 
     if user.role == 'admin'
       can :manage, :all
     else
       can :read, :all
+      can :manage, Category, user_id: user.id
+      can :manage, Expense, author_id: user.id
+      can :manage, CategoryExpense, user_id: user.id
     end
   end
 end
