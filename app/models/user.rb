@@ -3,11 +3,9 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :expenses, foreign_key: 'author_id'
-  
-  before_validation :set_default_recipes_counter
 
   validates :name, presence: true
-  
+
   # Adding the User::Roles
   # The available roles
 
