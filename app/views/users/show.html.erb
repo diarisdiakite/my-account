@@ -4,7 +4,7 @@
     <div class="user-details">
       <h2 class="username"><%= @user.name %></h2>
       <br>
-      <p class="item-count">Number of recipes: <%= @user.recipes.count %></p>
+      <p class="item-count">Number of operations: <%= @user.expenses.count %></p>
     </div>
   </div>
   <div class="bio">
@@ -14,10 +14,10 @@
     <small class="post-count"></small>
   </div>
   <ul class="user-posts">
-    <% @recipes.each do |recipe| %>
+    <% @categories.each do |category| %>
       <li class="user-post">
-        <h3><%= link_to recipe.name, user_recipe_path(recipe.user, recipe) %></h3>
-        <p><%= recipe.description %></p>
+        <h3><%= link_to category.name, user_category_path(category.user, category) %></h3>
+        <p><%= category.name %></p>
         <br>
         <small class="item-count"></small>
       </li>
@@ -25,5 +25,5 @@
   </ul>
 </div>
 <div class="button">
-  <button><%= link_to "View All Recipes", user_recipes_path(@user) %></button>
+  <button><%= link_to "View All Operations types", user_categories_path(@user) %></button>
 </div>

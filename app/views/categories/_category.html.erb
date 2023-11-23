@@ -1,7 +1,13 @@
 <div id="<%= dom_id category %>">
   <p>
     <strong>User:</strong>
-    <%= category.user_id %>
+    <%= category.user.name %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= category.name %>
+    <small>Total Amount: <%= category.total_expense_amount %></small>
   </p>
 
   <p>

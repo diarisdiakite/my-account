@@ -5,7 +5,7 @@
       <img class="user-image" src="user.photo" alt="User Image" />
       <div class="user-details">
         <h2 class="username"><%= link_to user.name, user_path(user) %></h2>
-        <p class="item-count">Number of recipes: <%= user.recipes.count %></p>
+        <p class="item-count">Number of operations: <%= user.expenses.count %></p>
       </div>
     </li>
   <% end %>

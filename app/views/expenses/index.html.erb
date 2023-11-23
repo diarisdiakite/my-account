@@ -3,12 +3,15 @@
 <h1>Expenses</h1>
 
 <div id="expenses">
-  <% @expenses.each do |expense| %>
-    <%= render expense %>
-    <p>
-      <%= link_to "Show this expense", expense %>
-    </p>
+  <% @categories.each do |category| %>
+    <h2><%= category.name %></h2>
+    <% category.expenses.each do |expense| %>
+      <%= render partial: 'expense', locals: { expense: expense } %>
+      <p>
+        <%= link_to "Show this expense", expense %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New expense", new_expense_path %>
+<%= link_to "New expense", new_user_category_expense_path(user_id: @user.id, category_id: @category&.id) %>
