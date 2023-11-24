@@ -1,5 +1,11 @@
+:root {
+  --main-blue: #3778c2;
+  --main-green: #5fb523;
+  --main-gray: #434b54;
+}
+
 * {
-  margin: 0;
+  margin-top: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -9,6 +15,7 @@
   justify-content: center;
   align-items: center;
   height: 100px;
+  color: var(--main-green);
 }
 
 .user-list {
@@ -23,21 +30,6 @@
   margin-bottom: 2%;
 }
 
-.user-image {
-  width: 15%;
-  height: 5%;
-  border-radius: 0%;
-  margin-right: 10px;
-  border: 1px solid black;
-}
-
-.user-details {
-  width: 85%;
-  height: 5%;
-  flex: 1;
-  border: 1px solid black;
-}
-
 .username {
   font-size: 1.2rem;
   margin: 0;
@@ -50,16 +42,6 @@
   text-align: right;
 }
 
-.bio,
-.user-post {
-  padding: 1% 1% 0.2% 1%;
-  border: 1px solid black;
-  margin-bottom: 1%;
-}
-
-.bio {
-  height: 15rem;
-}
 
 li {
   list-style-type: none;
@@ -140,4 +122,291 @@ li {
 
 .login-form .form-element {
   margin: 10px 0;
+}
+
+/* imported css */
+
+html {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.msg {
+  color: white;
+  background-color: #3778c2;
+  text-align: center;
+}
+
+.welcome {
+  background-color: #3778c2;
+  color: white;
+  font-size: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn {
+  cursor: pointer;
+  margin: 1rem 0;
+  background-color: #5fb523;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  border: solid 0.1rem white;
+  color: white;
+  transition: background-color 1s ease-out;
+}
+
+.signIn:hover {
+  background-color: white;
+  color: #5fb523;
+  border: solid 0.1rem #5fb523;
+}
+
+.signUp {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.signUp:hover {
+  text-decoration: underline;
+}
+
+.registration,
+.session,
+.forgotPassword,
+.userDetails,
+.addCategory,
+.addTransaction {
+  font-size: 1.2rem;
+  min-height: 100vh;
+  background-color: #3778c2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forms,
+.new_user {
+  width: 70%;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texts {
+  margin: 0.4rem 0 0.6rem 0;
+  padding: 0.4rem 0.6rem;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #5fb523;
+  color: white;
+  padding: 0.3rem 0;
+  margin: 0.8rem 0;
+  border: solid 0.1rem white;
+  transition: background-color 1s ease-out;
+}
+
+.btn:hover {
+  background-color: white;
+  border: solid 0.1rem #5fb523;
+  color: #5fb523;
+}
+
+.links {
+  color: white;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+.categories,
+.transactions {
+  background-color: whitesmoke;
+  min-height: 100vh;
+  color: white;
+}
+
+nav {
+  box-shadow: 0 0 0.3rem lightgrey;
+}
+
+nav ul {
+  color: white;
+  background-color: #3778c2;
+  list-style: none;
+  font-size: 1.3rem;
+  width: 100%;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBtn {
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.logout {
+  cursor: pointer;
+  font-size: 1.2rem;
+  border: none;
+  color: white;
+  background-color: #3778c2;
+}
+
+.cards {
+  padding: 5% 5% 25% 5%;
+  color: grey;
+}
+
+.categoryLink {
+  text-decoration: none;
+  color: grey;
+}
+
+.category {
+  background-color: white;
+  display: flex;
+  gap: 4%;
+  padding: 1% 2%;
+  margin-bottom: 4%;
+  box-shadow: 0 0 0.3rem lightgrey;
+  transition: background-color 1s ease-out;
+}
+
+.category:hover {
+  background-color: #5fb523;
+  color: white;
+}
+
+.icons {
+  max-width: 5rem;
+}
+
+.categoryInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bottom {
+  background-color: #5fb523;
+  position: fixed;
+  box-shadow: 0 0 0.3rem lightgrey;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5%;
+}
+
+.linkBtn {
+  text-decoration: none;
+  text-align: center;
+  border: solid 0.15rem white;
+  border-radius: 0.2rem;
+  padding: 0.6rem;
+  color: white;
+  width: 100%;
+  transition: background-color 1s ease-out;
+}
+
+.linkBtn:hover {
+  background-color: white;
+  color: #5fb523;
+}
+
+.categoryDetails {
+  background-color: white;
+  display: flex;
+}
+
+.transaction {
+  background-color: white;
+  box-shadow: 0 0 0.3rem lightgrey;
+  margin-bottom: 0.5rem;
+  padding: 1% 2%;
+  transition: background-color 1s ease-out;
+}
+
+.transaction:hover {
+  background-color: #3778c2;
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .welcome {
+    font-size: 3rem;
+  }
+
+  .signUp {
+    font-size: 2rem;
+  }
+
+  .signIn,
+  .registration,
+  .session,
+  .forgotPassword,
+  .userDetails,
+  .addCategory,
+  .addTransaction {
+    font-size: 1.7rem;
+  }
+
+  .forms,
+  .new_user {
+    width: 50%;
+  }
+
+  .msg,
+  .texts {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.6rem 0;
+  }
+
+  .categories,
+  .transactions {
+    font-size: 1.4rem;
+  }
+
+  nav ul,
+  .navBtn,
+  .logout {
+    font-size: 1.7rem;
+  }
+
+  .icons {
+    max-width: 8rem;
+  }
+
+  .bottom {
+    padding: 2%;
+  }
+
+  #entity_group_id {
+    font-size: 1.4rem;
+  }
 }
