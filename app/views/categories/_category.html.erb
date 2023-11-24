@@ -10,9 +10,10 @@
     <small>Total Amount: <%= category.total_expense_amount %></small>
   </p>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
+  <div class="icon">
+    <% if category.icon.attached? %>
+      <%= image_tag category.icon, style: 'width: 50px; height: 50px;' %>
+    <% end %>
+  </div>
 
 </div>
