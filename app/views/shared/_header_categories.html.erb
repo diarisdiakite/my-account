@@ -1,0 +1,24 @@
+<nav class='header-container'>
+  <ul>
+    <li><%= link_to '#', user_path(@user), :class=>'navBtn' %></li>
+    <li><p>CATEGORIES</p></li>
+    <li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= button_to "Sign out with link", destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= button_to "Sign in", new_user_session_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Sign up", new_user_registration_path, class:"nav-link" %>
+        </li>
+      <% end %>
+    </li>
+    <li><%= link_to '#', user_path(@user), :class=>'navBtn' %></li>
+  </ul>
+</nav>
+<div class="gift-credit-container">
+  here is the gift
+</div>
