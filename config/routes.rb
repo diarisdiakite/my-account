@@ -6,6 +6,7 @@
   
   devise_for :users
 
+  # resources :categories
   resources :users do
     resources :categories do
       resources :expenses
@@ -13,5 +14,5 @@
   end
    
   # Defines the root path route ("/")
-  root "users#index"
+  root "categories#index"
 end

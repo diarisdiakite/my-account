@@ -5,11 +5,15 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
+    @user = current_user
     @categories = Category.all
   end
 
   # GET /categories/1 or /categories/1.json
-  def show; end
+  def show
+    @user = current_user
+    @category = @user.categories.find(params[:id])
+  end
 
   # GET /categories/new
   def new
