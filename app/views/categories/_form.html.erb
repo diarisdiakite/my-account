@@ -1,3 +1,4 @@
+<div class="all-form">
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
     <div style="color: red">
@@ -17,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :icon, , style: "display: block" %>
+    <%= form.label :icon, style: "display: block" %>
     <%= form.file_field :icon %>
   </div>
   
@@ -25,3 +26,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

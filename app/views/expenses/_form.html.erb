@@ -1,3 +1,4 @@
+<div class="all-form">
 <%= form_with(model: [@user, @category, @expense], url: user_category_expenses_path(@user, @category), local: true) do |form| %>
   <% if expense.errors.any? %>
     <div style="color: red">
@@ -31,3 +32,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

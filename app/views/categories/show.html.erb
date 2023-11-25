@@ -1,10 +1,46 @@
-<p style="color: green"><%= notice %></p>
+<div id="<%= dom_id @category %>">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
+  <%= render 'shared/header' %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+  <div class="">
+    <div class="view-item-details">
+      <div class="view-icon">
+        <% if @category.icon.attached? %>
+          <%= image_tag @category.icon, style: 'width: 10rem; height: 10rem;' %>
+        <% end %>
+      </div>
+      <div class="my-flex">
+        <strong>
+          <%= link_to @category.name, user_category_path(@user, @category) %> 
+        </strong>
+        <small>
+            <%= link_to "Edit this category", edit_category_path(@category) %> |
+            <%= link_to "Back to categories", categories_path %>
+            <%= button_to "Destroy this category", @category, method: :delete %>
+        </small>
+      </div>
+    </div>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+    <div class="">
+      <ul>
+        <% @category.expenses.each do |expense| %>
+          <div class="view-item">
+            <li class="my-flex">
+              <%= link_to expense.name, user_category_expense_path(@user, @category, expense) %>
+              <%= expense.created_at %>
+              <% if can? :destroy, expense %>
+                <%= button_to 'Delete', user_category_expense_path(user_id: @user.id, category_id: @category.id, id: expense.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </li>
+            <li>$<%= expense.amount %></li>
+          </div>
+        <% end %>
+      </ul>
+    </div> 
+    <div class="view-total-payment">
+      <%= "TOTAL PAYMENT" %>
+      $<%= @category.total_expense_amount %>
+    </div>
+  </div>
 </div>

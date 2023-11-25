@@ -1,14 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<%= render 'shared/header_categories' %>
 
-<div id="categories">
+<div class="items-list">
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New category", new_category_path %>
+<%= render 'shared/footer' %>

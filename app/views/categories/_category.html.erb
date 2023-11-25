@@ -1,19 +1,15 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>User:</strong>
-    <%= category.user.name %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-    <small>Total Amount: <%= category.total_expense_amount %></small>
-  </p>
-
-  <div class="icon">
+  <div class="item">
     <% if category.icon.attached? %>
       <%= image_tag category.icon, style: 'width: 50px; height: 50px;' %>
     <% end %>
-  </div>
 
+    <div class="item-details">
+      <strong class="details-heading">
+        <%= link_to category.name, user_category_path(@user, category) %> 
+        $<%= category.total_expense_amount %>
+      </strong>
+      <small><%= category.created_at %></small>
+    </div>
+  </div>
 </div>
