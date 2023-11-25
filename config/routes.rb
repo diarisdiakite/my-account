@@ -14,5 +14,5 @@
   end
    
   # Defines the root path route ("/")
-  root "categories#index"
+  root "users#index"
 end

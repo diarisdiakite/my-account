@@ -1,29 +1,23 @@
+<%= render "shared/header_categories" %>
 <div class="user-list">
-  <div class="user">
-    <img class="user-image" src="<%= @user.photo %>" alt="User Image" />
-    <div class="user-details">
-      <h2 class="username"><%= @user.name %></h2>
-      <br>
-      <p class="item-count">Number of operations: <%= @user.expenses.count %></p>
-    </div>
-  </div>
-  <div class="bio">
-    <h3>Bio</h3>
-    <p><%= @user.bio %></p>
-    <br>
-    <small class="post-count"></small>
-  </div>
   <ul class="user-posts">
     <% @categories.each do |category| %>
-      <li class="user-post">
-        <h3><%= link_to category.name, user_category_path(category.user, category) %></h3>
-        <p><%= category.name %></p>
-        <br>
-        <small class="item-count"></small>
-      </li>
+      
+        <div class="item">
+          <% if category.icon.attached? %>
+            <%= image_tag category.icon, style: 'width: 50px; height: 50px;' %>
+          <% end %>
+
+          <div class="item-details">
+            <strong class="details-heading">
+              <%= link_to category.name, user_category_path(@user, category) %> 
+              $<%= category.total_expense_amount %>
+            </strong>
+            <small><%= category.created_at %></small>
+          </div>
+        </div>
+      
     <% end %>
   </ul>
 </div>
-<div class="button">
-  <button><%= link_to "View All Operations types", user_categories_path(@user) %></button>
-</div>
+<%= render "shared/footer" %>
