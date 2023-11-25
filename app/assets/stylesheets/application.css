@@ -1,412 +1,300 @@
 :root {
-  --main-blue: #3778c2;
-  --main-green: #5fb523;
-  --main-gray: #434b54;
-}
-
-* {
-  margin-top: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  color: var(--main-green);
-}
-
-.user-list {
-  list-style: none;
-  padding: 5% 5% 0 5%;
-  width: 90%;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2%;
-}
-
-.username {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.item-count {
-  font-size: 0.9rem;
-  margin: 0 1% 0 0;
-  color: #888;
-  text-align: right;
-}
-
-
-li {
-  list-style-type: none;
-}
-
-/* Form */
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.form-group {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.login-container {
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 1%;
-  background-color: #f4f4f4;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-form .field {
-  margin: 10px 0;
-}
-
-.login-form label {
-  font-weight: bold;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.login-form .login-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.login-form .login-button:hover {
-  background-color: #0056b3;
-}
-
-.login-form a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-.login-form .text-center {
-  text-align: center;
-}
-
-.error-message {
-  color: #f00;
-  margin: 10px 0;
-  font-weight: bold;
-}
-
-.login-form .form-element {
-  margin: 10px 0;
-}
-
-/* imported css */
-
-html {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.msg {
-  color: white;
-  background-color: #3778c2;
-  text-align: center;
-}
-
-.welcome {
-  background-color: #3778c2;
-  color: white;
-  font-size: 2rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.signIn {
-  cursor: pointer;
-  margin: 1rem 0;
-  background-color: #5fb523;
-  font-size: 1.2rem;
-  padding: 0.3rem 0.6rem;
-  border: solid 0.1rem white;
-  color: white;
-  transition: background-color 1s ease-out;
-}
-
-.signIn:hover {
-  background-color: white;
-  color: #5fb523;
-  border: solid 0.1rem #5fb523;
-}
-
-.signUp {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-}
-
-.signUp:hover {
-  text-decoration: underline;
-}
-
-.registration,
-.session,
-.forgotPassword,
-.userDetails,
-.addCategory,
-.addTransaction {
-  font-size: 1.2rem;
-  min-height: 100vh;
-  background-color: #3778c2;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.forms,
-.new_user {
-  width: 70%;
-}
-
-.btnDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.texts {
-  margin: 0.4rem 0 0.6rem 0;
-  padding: 0.4rem 0.6rem;
-  width: 100%;
-}
-
-.btn {
-  cursor: pointer;
-  font-size: 1rem;
-  width: 100%;
-  background-color: #5fb523;
-  color: white;
-  padding: 0.3rem 0;
-  margin: 0.8rem 0;
-  border: solid 0.1rem white;
-  transition: background-color 1s ease-out;
-}
-
-.btn:hover {
-  background-color: white;
-  border: solid 0.1rem #5fb523;
-  color: #5fb523;
-}
-
-.links {
-  color: white;
-  text-decoration: none;
-}
-
-.links:hover {
-  text-decoration: underline;
-}
-
-.categories,
-.transactions {
-  background-color: whitesmoke;
-  min-height: 100vh;
-  color: white;
-}
-
-nav {
-  box-shadow: 0 0 0.3rem lightgrey;
-}
-
-nav ul {
-  color: white;
-  background-color: #3778c2;
-  list-style: none;
-  font-size: 1.3rem;
-  width: 100%;
-  padding: 0.6rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navBtn {
-  font-size: 1.2rem;
-  color: white;
-  text-decoration: none;
-}
-
-.logout {
-  cursor: pointer;
-  font-size: 1.2rem;
-  border: none;
-  color: white;
-  background-color: #3778c2;
-}
-
-.cards {
-  padding: 5% 5% 25% 5%;
-  color: grey;
-}
-
-.categoryLink {
-  text-decoration: none;
-  color: grey;
-}
-
-.category {
-  background-color: white;
-  display: flex;
-  gap: 4%;
-  padding: 1% 2%;
-  margin-bottom: 4%;
-  box-shadow: 0 0 0.3rem lightgrey;
-  transition: background-color 1s ease-out;
-}
-
-.category:hover {
-  background-color: #5fb523;
-  color: white;
-}
-
-.icons {
-  max-width: 5rem;
-}
-
-.categoryInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bottom {
-  background-color: #5fb523;
-  position: fixed;
-  box-shadow: 0 0 0.3rem lightgrey;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 5%;
-}
-
-.linkBtn {
-  text-decoration: none;
-  text-align: center;
-  border: solid 0.15rem white;
-  border-radius: 0.2rem;
-  padding: 0.6rem;
-  color: white;
-  width: 100%;
-  transition: background-color 1s ease-out;
-}
-
-.linkBtn:hover {
-  background-color: white;
-  color: #5fb523;
-}
-
-.categoryDetails {
-  background-color: white;
-  display: flex;
-}
-
-.transaction {
-  background-color: white;
-  box-shadow: 0 0 0.3rem lightgrey;
-  margin-bottom: 0.5rem;
-  padding: 1% 2%;
-  transition: background-color 1s ease-out;
-}
-
-.transaction:hover {
-  background-color: #3778c2;
-  color: white;
-}
-
-@media screen and (min-width: 768px) {
-  .welcome {
-    font-size: 3rem;
+    --main-blue: #3778c2;
+    --main-green: #5fb523;
+    --main-gray: #434b54;
+    --main-white: #fcfafa;
+    --main-black: #020202;
+    --error-color: #f00;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-
-  .signUp {
-    font-size: 2rem;
+  
+  * {
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-
-  .signIn,
-  .registration,
-  .session,
-  .forgotPassword,
-  .userDetails,
-  .addCategory,
-  .addTransaction {
-    font-size: 1.7rem;
+  
+  .button {
+    color: var(--main-green);
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    color: var(--main-white);
+    padding: 0.3rem 0;
+    margin: 0.8rem 0;
+    border: solid 0.1rem var(--main-white);
+    transition: background-color 1s ease-out;
   }
-
-  .forms,
-  .new_user {
-    width: 50%;
+  
+  .my-flex {
+    display: flex;
+    flex-direction: column;
   }
-
-  .msg,
-  .texts {
+  
+  /* User */
+  .user-list {
+    list-style: none;
+    padding: 5% 5% 0 5%;
+    width: 90%;
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  
+  .username {
     font-size: 1.2rem;
+    margin: 0;
   }
-
-  .btn {
-    font-size: 1.4rem;
-    padding: 0.6rem 0;
+  
+  .item-count {
+    font-size: 0.9rem;
+    margin: 0 1% 0 0;
+    color: #888;
+    text-align: right;
   }
-
-  .categories,
-  .transactions {
-    font-size: 1.4rem;
+  
+  li {
+    list-style-type: none;
   }
-
-  nav ul,
-  .navBtn,
-  .logout {
-    font-size: 1.7rem;
+  
+  /* Form */
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
-
-  .icons {
-    max-width: 8rem;
+  
+  .form-group {
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
-
-  .bottom {
-    padding: 2%;
+  
+  .sign-up-form,
+  .login-form,
+  .all-form {
+    cursor: pointer;
+    margin: 1rem 0;
+    background-color: var(--main-white);
+    font-size: 1.2rem;
+    padding: 0.3rem 0.6rem;
+    border: solid 0.1rem white;
+    color: var(--main-black);
   }
-
-  #entity_group_id {
-    font-size: 1.4rem;
+  
+  .sign-up-form label
+  .login-form label
+  .all-form label {
+    font-weight: bold;
   }
-}
+  
+  .sign-up-form input,
+  .login-form input,
+  .all-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .sign-up-form .sign-up-form-button,
+  .login-form .login-button,
+  .all-form .all-button {
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .sign-up-form .sign-up-form-button:hover,
+  .login-form .login-button:hover,
+  .all-form .all-button:hover {
+    background-color: var(--main-blue);
+  }
+  
+  .sign-up-form a,
+  .login-form a,
+  .all-form a {
+    text-decoration: none;
+    color: var(--main-blue);
+    font-weight: bold;
+  }
+  
+  .sign-up-form .text-center,
+  .login-form .text-center,
+  .all-form .text-center {
+    text-align: center;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .sign-up-form .form-element,
+  .login-form .form-element,
+  .all-form .form-element  {
+    margin: 10px 0;
+  }
+  
+  /* Title */
+  .title-container {
+    width: 100%;
+    height: 10rem;
+  }
+  
+  /* Header*/
+  .header-container {
+    width: 100%;
+    background-color: var(--main-blue);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+  }
+  
+  /* gift credit */
+  .gift-credit-container {
+    width: 100%;
+    height: 5%;
+    color: var(--main-black);
+    display: flex;
+    /* align-items: space-between; */
+  }
+  
+  .text-left {
+    align-self: flex-start;
+  }
+  
+  .text-right {
+    align-self: flex-start;
+  }
+  
+  /* 
+    main 
+  
+    - view templates prefixed 'view' 
+  */
+  .main-container {
+    width: 100%;
+    height: 60%;
+    color: var(--main-gray);
+  }
+  
+  .items-list {
+    padding: 5%;
+    color: var(--main-black);
+  }
+  
+  .item {
+    background-color: var(--main-white);
+    display: flex;
+    margin-bottom: 5%;
+    padding: 4%;
+    gap: 5%;
+    box-shadow: 0 0 0.3rem lightgrey;
+  }
+  
+  .view-item {
+    background-color: var(--main-white);
+    display: flex;
+    font-size: x-large;
+    padding: 4%;
+    gap: 5%;
+    border-bottom: 0.01px solid var(--main-gray);
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .item-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50%;
+  }
+  
+  .view-item-details {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    font-size: xx-large;
+    text-transform: capitalize;
+  }
+  
+  .details-heading {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .img {
+    width: 5%;
+    height: 5%;
+  }
+  
+  .view-total-payment {
+    width: 100%;
+    background-color: var(--main-white);
+    display: flex;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 4%;
+    justify-content: space-between;
+  }
+  
+  /* Footer */
+  .footer-container {
+    width: 100%;
+    background-color: var(--main-green);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+  }
+  
+  .footer-btn {
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    background-color: var(--main-green);
+    color: var(--main-white);
+    padding: 0.3rem 0;
+    margin: 0.8rem 0;
+    border: solid 0.1rem var(--main-white);
+    transition: background-color 1s ease-out;
+    padding: 3%;
+  }
+  
+  /*  */
+  nav {
+    box-shadow: 0 0 0.3rem lightgrey;
+  }
+  
+  nav ul {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-blue);
+    color: var(--main-white);
+    list-style: none;
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
