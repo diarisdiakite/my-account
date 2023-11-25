@@ -1,24 +1,28 @@
 <nav class='header-container'>
   <ul>
-    <li><%= link_to '#', user_path(@user), :class=>'navBtn' %></li>
-    <li><p>CATEGORIES</p></li>
     <li>
+      <%= link_to user_path(@user) do %>
+        <%= image_tag image_path('hamburger-menu.jpg'), style: 'width: 4rem; height: 4rem;' %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      CATEGORIES
+    </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= button_to "Sign out with link", destroy_user_session_path, method: :delete, class:"nav-link" %>
+          <%= button_to destroy_user_session_path, method: :delete do %>
+            <%= image_tag 'search.png', alt: 'Sign out', style: 'width: 4rem; height: 4rem;' %>
+          <% end %>
         </li>
         <% else %>
         <li class="nav-item">
-          <%= button_to "Sign in", new_user_session_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= button_to "Sign up", new_user_registration_path, class:"nav-link" %>
+          <%= link_to "Sign in", new_user_session_path, class:"button" %>
+          <%= link_to "Sign up", new_user_registration_path, class:"button" %>
         </li>
       <% end %>
-    </li>
-    <li><%= link_to '#', user_path(@user), :class=>'navBtn' %></li>
   </ul>
 </nav>
-<div class="gift-credit-container">
-  here is the gift
+<div class="gift-credit-container details-heading">
+  <h2>here is the gift</h2>
+  <h2>$300</h2>
 </div>

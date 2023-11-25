@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :categories
   has_many :expenses, foreign_key: 'author_id'
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
 
   # Adding the User::Roles
   # The available roles
