@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render 'shared/header_categories' %>
+
+<div class="items-list">
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
+
+<%= render 'shared/footer' %>
