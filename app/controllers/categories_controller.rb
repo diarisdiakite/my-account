@@ -3,6 +3,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
   load_and_authorize_resource
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   # GET /categories or /categories.json
   def index
     @user = current_user
@@ -68,6 +70,10 @@ class CategoriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_category
     @category = Category.find(params[:id])
+  end
+
+  def not_found
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 
   # Only allow a list of trusted parameters through.

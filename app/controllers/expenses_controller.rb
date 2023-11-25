@@ -5,6 +5,8 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show edit update destroy]
   load_and_authorize_resource
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   # GET /expenses or /expenses.json
   def index
     @user = User.find(params[:user_id])
@@ -89,6 +91,10 @@ class ExpensesController < ApplicationController
 
   def set_category
     @category = @categories.find(params[:category_id]) if params[:category_id].present?
+  end
+
+  def not_found
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 
   # Only allow a list of trusted parameters through.
