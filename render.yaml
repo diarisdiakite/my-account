@@ -1,18 +1,17 @@
 databases:
-  - name: My-account-app
-    databaseName: My-account-app
-    user: postgres
-
+  - name: my-account-app-db
+    databaseName: my_account_app_db
+    user: my_account_app_user
 services:
   - type: web
-    name: My-account-app
+    name: my-account-app
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: My-account-app
+          name: my-account-app-db
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
