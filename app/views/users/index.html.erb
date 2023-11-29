@@ -20,7 +20,7 @@
         <div class="user-image">
           <% if user.photo && user.photo.attached? %>
             <%= image_tag user.photo, style: 'width: 50px; height: 50px;' %>
-          <% else %>
+          <% elsif user.photo.is_a?(String) %>
             <%= image_tag image_path('default-user.png'), style: 'width: 50px; height: 50px;' %>
           <% end %>
         </div>

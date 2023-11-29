@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2 }
 
+  has_one_attached :photo
+
   # Adding the User::Roles
   # The available roles
 

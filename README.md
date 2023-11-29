@@ -7,6 +7,7 @@
   - [🛠 Built With ](#built-with)
     - [Tech Stack ](#tech-stack)
     - [Key Features ](#key-features)
+  - [🚀 Live Demo](#live-demo)
   - [💻 Getting Started ](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -54,12 +55,15 @@ The following technologies have been used for the project development.
 The key features of the application are:
 
 - Create, Read and Delete expenses and categories
-- Authentication with Devise.
+- Authentication with Devise
 - Authorization rules for users
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
+## 🚀 Live demo <a name="live-demo"></a>
+
+Please follow this [link](https://my-account-pf88.onrender.com/) to have a demo of my_account_app.
 
 <!-- GETTING STARTED -->
 
@@ -164,6 +168,8 @@ If you like the [my-account]() project, you can support our work. Please, visit 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thank the Microverse community to inspire and encourage everyday programmers and aspiring programmers.
+
+The original design of this application is from [Gregoire Vella](https://www.behance.net/gregoirevella) on [Behance](https://creativecommons.org/licenses/by-nc/4.0/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

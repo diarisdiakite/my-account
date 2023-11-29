@@ -3,7 +3,7 @@ require 'rails_helper'
 # frozen_string_literal: true
 
 describe Expense, type: :model do
-  let(:author) { User.create(name: 'John', photo: 'photo_url', bio: 'A bio') }
+  let(:author) { User.create(name: 'John') }
 
   subject do
     Expense.create(
