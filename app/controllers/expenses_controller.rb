@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   before_action :set_user_and_categories
   before_action :set_category, only: %i[index new create]
   before_action :set_expense, only: %i[show edit update destroy]
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
@@ -16,7 +16,11 @@ class ExpensesController < ApplicationController
   end
 
   # GET /expenses/1 or /expenses/1.json
-  def show; end
+  def show
+    @user = User.find(params[:user_id])
+    @category = @user.categories.find(params[:id])
+    authorize! :show, @category # Add this line for authorization
+  end
 
   # GET /expenses/new
   def new
@@ -43,7 +47,7 @@ class ExpensesController < ApplicationController
     respond_to do |format|
       if @expense.save
         format.html do
-          redirect_to user_category_expenses_path(@user, @category), notice: 'Expense was successfully created.'
+          redirect_to user_category_path(@user, @category), notice: 'Expense was successfully created.'
         end
         format.json { render :show, status: :created, location: @expense }
       else

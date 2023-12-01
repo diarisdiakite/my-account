@@ -43,6 +43,17 @@
   transition: background-color 1s ease-out;
 }
 
+.button-white {
+  cursor: pointer;
+  font-size: xx-small;
+  width: 100%;
+  color: var(--main-black);
+  padding: 0.2rem 0;
+  margin: 0.1rem 0;
+  border: solid 0.1rem var(--main-white);
+  transition: background-color 1s ease-out;
+}
+
 .my-flex {
   display: flex;
   flex-direction: column;
@@ -357,4 +368,3 @@ nav ul {
     padding: 1%;
   }
 }
-  

@@ -36,7 +36,7 @@ class Ability
       can :read, :all
       can :manage, Category, user_id: user.id
       can :manage, Expense, author_id: user.id
-      can :manage, CategoryExpense, user_id: user.id
+      can :manage, CategoryExpense, category: { user_id: user.id }
     end
   end
 end
