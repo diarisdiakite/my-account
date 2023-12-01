@@ -169,7 +169,7 @@ If you like the [my-account]() project, you can support our work. Please, visit 
 
 I would like to thank the Microverse community to inspire and encourage everyday programmers and aspiring programmers.
 
-The original design of this application is from [Gregoire Vella](https://www.behance.net/gregoirevella) on [Behance](https://creativecommons.org/licenses/by-nc/4.0/).
+The original design of this application is from [Gregoire Vella](https://www.behance.net/gregoirevella) from [Behance](https://creativecommons.org/licenses/by-nc/4.0/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
