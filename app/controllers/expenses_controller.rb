@@ -19,7 +19,7 @@ class ExpensesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @category = @user.categories.find(params[:id])
-    authorize! :show, @category # Add this line for authorization 
+    authorize! :show, @category # Add this line for authorization
   end
 
   # GET /expenses/new
@@ -47,7 +47,7 @@ class ExpensesController < ApplicationController
     respond_to do |format|
       if @expense.save
         format.html do
-          redirect_to user_category_expenses_path(@user, @category), notice: 'Expense was successfully created.'
+          redirect_to user_category_path(@user, @category), notice: 'Expense was successfully created.'
         end
         format.json { render :show, status: :created, location: @expense }
       else
