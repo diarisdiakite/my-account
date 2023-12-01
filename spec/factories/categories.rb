@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :category do
-    user { nil }
+    # user { nil }
     name { 'MyName' }
-    icon { 'MyString' }
+    icon { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'files', 'icon.png'), 'image/png') }
+    association :user
   end
 end
