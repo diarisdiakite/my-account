@@ -82,6 +82,12 @@ class ExpensesController < ApplicationController
     @categories = @user.categories
   end
 
+  def index_in_category
+    @user = User.find(params[:user_id])
+    @category = @user.categories.find(params[:id])
+    @expenses = @category.expenses
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
