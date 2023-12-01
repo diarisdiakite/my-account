@@ -1,10 +1,10 @@
 <h1>Editing category</h1>
 
-<%= render "form", category: @category %>
+<%= render "form_edit", category: @category %>
 
 <br>
 
 <div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", user_path %>
+  <%= link_to "Show this category", user_category_path(@user, @category) %> |
+  <%= link_to "Back to categories", user_categories_path(@user) %>
 </div>
