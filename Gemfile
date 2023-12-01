@@ -88,3 +88,5 @@ gem 'active_model_serializers', '~> 0.10.14'
 gem 'gwt'
 
 gem 'activestorage'
+
+gem 'factory_bot_rails'
