@@ -63,7 +63,9 @@ The key features of the application are:
 <!-- LIVE DEMO -->
 ## 🚀 Live demo <a name="live-demo"></a>
 
-Please follow this [link](https://my-account-pf88.onrender.com/) to have a demo of my_account_app.
+Please watch the presentation video at this [link](https://www.loom.com/share/2747aeabe45443709317181533a60d6b)
+
+You can follow this [link](https://my-account-pf88.onrender.com/) to have a demo of my_account_app.
 
 <!-- GETTING STARTED -->
 
