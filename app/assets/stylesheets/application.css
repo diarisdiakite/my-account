@@ -45,18 +45,19 @@
 
 .button-white {
   cursor: pointer;
-  font-size: xx-small;
+  font-size: small;
   width: 100%;
   color: var(--main-black);
   padding: 0.2rem 0;
   margin: 0.1rem 0;
-  border: solid 0.1rem var(--main-white);
+  border: solid 0.1rem var(--main-blue);
   transition: background-color 1s ease-out;
 }
 
 .my-flex {
   display: flex;
   flex-direction: column;
+  text-align: start;
 }
 
 .my-flex-row {
@@ -68,13 +69,18 @@
   background-color: var(--main-green);
 }
 
+.left {
+  text-align: left;
+}
+
 a {
   color: var(--main-gray);
 }
 
 /* Homepage */
 .homepage {
-  width: 60%;
+  width: 100%;
+  height: 100%;
   background-color: var(--main-blue);
 }
 

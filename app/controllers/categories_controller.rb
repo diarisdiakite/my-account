@@ -26,7 +26,10 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1/edit
-  def edit; end
+  def edit
+    @user = current_user
+    @category = @user.categories.find(params[:id])
+  end
 
   # POST /categories or /categories.json
   def create
@@ -47,9 +50,12 @@ class CategoriesController < ApplicationController
 
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
+    @user = current_user
+    @category = current_user.categories.find(params[:id])
+
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
+        format.html { redirect_to user_categories_url, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,6 +67,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1 or /categories/1.json
   def destroy
     @user = current_user
+    @category = @user.categories.find(params[:id])
     @category.destroy
     respond_to do |format|
       format.html { redirect_to user_categories_url(@user), notice: 'Category was successfully destroyed.' }
