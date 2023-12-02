@@ -1,11 +1,10 @@
 <div class="all-form">
 <%= form_with(model: [current_user, @category], url: user_category_path(current_user, @category), method: :patch) do |form| %>
-  <% if category.errors.any? %>
+  <% if @category.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
       <ul>
-        <% category.errors.each do |error| %>
+        <% @category.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
