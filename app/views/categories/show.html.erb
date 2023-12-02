@@ -1,3 +1,4 @@
+<div class='container'>
 <div id="<%= dom_id @category %>">
   <p style="color: green"><%= notice %></p>
 
@@ -14,7 +15,6 @@
         <%= link_to @category.name, user_category_path(@user, @category) %> 
       </strong>
       <small>
-        <%= link_to 'Add a New Expense', new_user_category_expense_path(user_id: @user.id, category_id: @category&.id), class: 'button-white' %>
       </small>
     </div>
   </div>
@@ -41,3 +41,9 @@
     $<%= @category.total_expense_amount %>
   </div>
 </div>
+
+<div class="footer-container">
+  <%= link_to 'Add a New Expense', new_user_category_expense_path(user_id: @user.id, category_id: @category&.id) %>
+</div>
+</div>
+

@@ -1,0 +1,24 @@
+<nav class='header-container'>
+  <ul>
+    <li>
+      <%= link_to user_path(@user) do %>
+        <%= image_tag image_path('back_button.jpeg'), style: 'width: 4rem; height: 4rem;' %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      CATEGORIES
+    </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= button_to destroy_user_session_path, method: :delete do %>
+            <%= image_tag 'search-icon_blue.png', alt: 'Sign out', style: 'width: 4rem; height: 4rem;' %>
+          <% end %>
+        </li>
+        <% else %>
+        <li class="nav-item my-flex">
+          <%= link_to "Login", new_user_session_path, class:"button" %>
+          <%= link_to "Signup", new_user_registration_path, class:"button" %>
+        </li>
+      <% end %>
+  </ul>
+</nav>
