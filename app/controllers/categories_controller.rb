@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def show
     @user = current_user
     @category = @user.categories.find(params[:id])
-    @expenses = @category.expenses
+    @expenses = @category.expenses.order(created_at: :desc)
   end
 
   # GET /categories/new
