@@ -1,0 +1,23 @@
+<%= render "shared/header_categories" %>
+<div class="user-list">
+  <ul class="user-posts">
+    <% @categories.each do |category| %>
+      
+        <div class="item">
+          <% if category.icon.attached? %>
+            <%= image_tag category.icon, style: 'width: 50px; height: 50px;' %>
+          <% end %>
+
+          <div class="item-details">
+            <strong class="details-heading">
+              <%= link_to category.name, user_category_path(@user, category) %> 
+              $<%= category.total_expense_amount %>
+            </strong>
+            <small><%= category.created_at %></small>
+          </div>
+        </div>
+      
+    <% end %>
+  </ul>
+</div>
+<%= render "shared/footer" %>

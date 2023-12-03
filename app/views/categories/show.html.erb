@@ -1,0 +1,49 @@
+<div class='container'>
+<div id="<%= dom_id @category %>">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render 'shared/header' %>
+
+  <div class="view-item-details">
+    <div class="view-icon">
+      <% if @category.icon.attached? %>
+        <%= image_tag @category.icon, style: 'width: 10rem; height: 10rem;' %>
+      <% end %>
+    </div>
+    <div class="my-flex">
+      <strong>
+        <%= link_to @category.name, user_category_path(@user, @category) %> 
+      </strong>
+      <small>
+      </small>
+    </div>
+  </div>
+
+  <div class="scroll">
+    <ul>
+      <% @category.expenses.each do |expense| %>
+        <div class="view-item">
+          <li class="my-flex">
+            <%= link_to expense.name %>
+            <span class="left"><%= time_ago_in_words(expense.created_at) %></span>
+            <% if can? :destroy, expense %>
+              <%= button_to 'Delete', expense_path(@user, @category, @expense), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </li>
+          <li>$<%= expense.amount %></li>
+        </div>
+      <% end %>
+    </ul>
+  </div> 
+
+  <div class="view-total-payment">
+    <%= "TOTAL PAYMENT" %>
+    $<%= @category.total_expense_amount %>
+  </div>
+</div>
+
+<div class="footer-container">
+  <%= link_to 'Add a New Expense', new_user_category_expense_path(user_id: @user.id, category_id: @category&.id) %>
+</div>
+</div>
+
