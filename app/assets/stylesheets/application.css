@@ -126,8 +126,12 @@ li {
 /* Form */
 .container {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
+  overflow: scroll;
+}
+
+.scroll {
   overflow: scroll;
 }
 
@@ -262,6 +266,7 @@ nav ul {
   width: 100%;
   min-height: 60%;
   color: var(--main-gray);
+  overflow-y: scroll;
 }
 
 .items-list {
@@ -379,9 +384,11 @@ nav ul {
     padding: 1%;
   }
 
+  /*
   .container {
     width: 100%;
     min-height: 100vh;
     display: flex;
   }
+  */
 }
