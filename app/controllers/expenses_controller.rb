@@ -1,10 +1,10 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user_and_categories
+  # before_action :set_user
   before_action :set_category, only: %i[index new create]
   before_action :set_expense, only: %i[show edit update destroy]
   # load_and_authorize_resource
-
+  
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   # GET /expenses or /expenses.json
@@ -18,8 +18,18 @@ class ExpensesController < ApplicationController
   # GET /expenses/1 or /expenses/1.json
   def show
     @user = User.find(params[:user_id])
-    @category = @user.categories.find(params[:id])
-    authorize! :show, @category # Add this line for authorization
+    @expense = Expense.find(params[:id])
+    @categories = @user.categories
+    @category = @categories.find(params[:category_id]) if params[:category_id].present?
+
+    authorize! :show, @expense
+
+    # You may want to adjust the logic here based on your requirements
+    if @category.present?
+      @expenses = @category.expenses
+    else
+      @expenses = @expense.categories.map(&:expenses)
+    end
   end
 
   # GET /expenses/new
@@ -31,7 +41,12 @@ class ExpensesController < ApplicationController
   end
 
   # GET /expenses/1/edit
-  def edit; end
+  def edit
+    @user = User.find(params[:user_id])
+    @expense = Expense.find(params[:id])
+    @categories = @user.categories
+    @category = @categories.find(params[:category_id]) if params[:category_id].present?
+  end
 
   # POST /expenses or /expenses.json
   def create
@@ -60,9 +75,14 @@ class ExpensesController < ApplicationController
 
   # PATCH/PUT /expenses/1 or /expenses/1.json
   def update
+    @user = User.find(params[:user_id])
+    @category = @user.categories.find(params[:category_id])
+    # @expense = Expense.find(params[:id])
+    @expense = @category.expenses.find(params[:id])
+
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to expense_url(@expense), notice: 'Expense was successfully updated.' }
+        format.html { redirect_to user_category_expense_url(@user, @category, @expense), notice: 'Expense was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -76,7 +96,7 @@ class ExpensesController < ApplicationController
     @expense.destroy
 
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to user_category_expenses_url, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -94,6 +114,8 @@ class ExpensesController < ApplicationController
   end
 
   def set_category
+    @user = User.find(params[:user_id])
+    @categories = @user.categories
     @category = @categories.find(params[:category_id]) if params[:category_id].present?
   end
 

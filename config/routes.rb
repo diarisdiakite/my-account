@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :categories do
-      resources :expenses, shallow: true
+      resources :expenses #, shallow: true
     end
+    # resources :expenses, only: [:update, :destroy]
   end
     
   # Defines the root path route ("/")

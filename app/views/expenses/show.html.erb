@@ -3,7 +3,7 @@
 <%= render @expense %>
 
 <div>
-  <%= link_to "Edit this expense", edit_expense_path(@expense) %> |
-  <%= link_to "Back to expenses", user_category_expenses_path %>
-  <%= button_to "Destroy this expense", @expense, method: :delete %>
+  <%= link_to "Edit this expense", edit_user_category_expense_path(@user, @category, @expense) %> |
+  <%= link_to "Back to expenses", user_category_expenses_path(user_id: @user.id, category_id: @category.id) %>
+  <%= button_to 'Delete this expense', user_category_expense_path(@user, @category, @expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
 </div>

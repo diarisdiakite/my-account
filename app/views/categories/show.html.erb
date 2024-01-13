@@ -26,10 +26,11 @@
       <% @category.expenses.each do |expense| %>
         <div class="view-item">
           <li class="my-flex">
-            <%= link_to expense.name, user_category_expenses_path(@user, @category, @expense) %>
+            <%= link_to expense.name, user_category_expense_path(@user, @category, expense) %>
             <span class="left"><%= time_ago_in_words(expense.created_at) %></span>
             <% if can? :destroy, expense %>
-              <%= button_to 'Delete', expense_path(@user, @category, @expense), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= button_to 'Delete this expense', url_for([@user, @category, expense]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
+              <%= link_to 'Edit this expense', edit_user_category_expense_path(user_id: @user.id, category_id: @category.id, expense_id: expense.id), class: 'button-white' %>  
             <% end %>
           </li>
           <li>$<%= expense.amount %></li>

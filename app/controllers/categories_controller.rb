@@ -14,8 +14,10 @@ class CategoriesController < ApplicationController
   # GET /categories/1 or /categories/1.json
   def show
     @user = current_user
+    @categories = @user.categories
     @category = @user.categories.find(params[:id])
     @expenses = @category.expenses
+    @expense = @user.categories.flat_map(&:expenses).find(params[:id])
   end
 
   # GET /categories/new

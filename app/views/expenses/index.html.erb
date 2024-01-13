@@ -8,7 +8,7 @@
     <% category.expenses.each do |expense| %>
       <%= render partial: 'expense', locals: { expense: expense } %>
       <p>
-        <%= link_to "Show this expense", expense %>
+        <%= link_to "Show this expense", user_category_expense_path(@user, @category, expense) %>
       </p>
     <% end %>
   <% end %>
