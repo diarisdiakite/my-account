@@ -14,6 +14,8 @@
         <%= link_to @category.name, user_category_path(@user, @category) %> 
       </strong>
       <small>
+        <%= button_to 'Delete this category', [@user, @category], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
+        <%= link_to 'Edit this category', edit_user_category_path(user_id: @user.id, category_id: @category&.id), class: 'button-white' %>
         <%= link_to 'Add a New Expense', new_user_category_expense_path(user_id: @user.id, category_id: @category&.id), class: 'button-white' %>
       </small>
     </div>
@@ -24,7 +26,7 @@
       <% @category.expenses.each do |expense| %>
         <div class="view-item">
           <li class="my-flex">
-            <%= link_to expense.name %>
+            <%= link_to expense.name, user_category_expenses_path(@user, @category, @expense) %>
             <span class="left"><%= time_ago_in_words(expense.created_at) %></span>
             <% if can? :destroy, expense %>
               <%= button_to 'Delete', expense_path(@user, @category, @expense), method: :delete, data: { confirm: 'Are you sure?' } %>

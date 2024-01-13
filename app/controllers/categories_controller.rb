@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
@@ -68,6 +68,19 @@ class CategoriesController < ApplicationController
   def destroy
     @user = current_user
     @category = @user.categories.find(params[:id])
+
+    # Update foreign key references in category_expenses table
+    @category.category_expenses.destroy_all
+  
+    # Then destroy the category
+    @category.destroy
+  
+    respond_to do |format|
+      format.html { redirect_to user_categories_url(@user), notice: 'Category was successfully destroyed.' and return }
+      format.json { head :no_content }
+    end
+
+
     @category.destroy
     respond_to do |format|
       format.html { redirect_to user_categories_url(@user), notice: 'Category was successfully destroyed.' }
