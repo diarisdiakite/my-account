@@ -21,6 +21,46 @@
     <%= form.label :icon, style: "display: block" %>
     <%= form.file_field :icon %>
   </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :facebook, style: "display: block" %>
+    <%= form.text_field :facebook %>
+  </div>
+
+  <div>
+    <%= form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <div>
+    <%= form.label :website, style: "display: block" %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div>
+    <%= form.label :finance_fee, style: "display: block" %>
+    <%= form.number_field :finance_fee %>
+  </div>
+  
+  <div>
+    <%= form.label :option_to_purchase_fee, style: "display: block" %>
+    <%= form.number_field :option_to_purchase_fee %>
+  </div>
+  
+  <div>
+    <%= form.label :duration, style: "display: block" %>
+    <%= form.number_field :duration %>
+  </div>
+  
+  <div>
+    <%= form.label :total_amount_payable, style: "display: block" %>
+    <%= form.number_field :total_amount_payable %>
+  </div>
   
   <div>
     <%= form.submit %>

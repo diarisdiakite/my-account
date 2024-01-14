@@ -8,12 +8,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :categories do
-      resources :expenses #, shallow: true
+      resources :expenses
     end
     resources :cars do
       resources :reservations
     end
-    # resources :expenses, only: [:update, :destroy]
   end
     
   # Defines the root path route ("/")

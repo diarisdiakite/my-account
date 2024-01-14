@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :categories
   has_many :expenses, foreign_key: 'author_id'
 
+  has_many :cars
+  has_many :reservations
+
   validates :name, presence: true, length: { minimum: 2 }
 
   has_one_attached :photo

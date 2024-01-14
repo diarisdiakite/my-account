@@ -13,10 +13,11 @@ class UsersController < ApplicationController
   # Create a show action
   def show
     @user = User.find(params[:id])
-    @categories = @user.categories
+    @cars = @user.cars
+    # @categories = @user.categories
     # Other logic as needed
     p @user
-    p @categories
+    p @cars
   end
 
   private

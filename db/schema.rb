@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_24_002142) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_14_025124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_002142) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cars", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.string "description"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "website"
+    t.integer "finance_fee"
+    t.integer "option_to_purchase_fee"
+    t.integer "total_amount_payable"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -59,6 +74,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_002142) do
     t.index ["expense_id"], name: "index_category_expenses_on_expense_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "continent"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.string "name"
@@ -66,6 +89,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_002142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_expenses_on_author_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "car_id", null: false
+    t.string "city", null: false
+    t.integer "hourly_fee"
+    t.integer "total_amount_payable"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_reservations_on_car_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,4 +130,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_002142) do
   add_foreign_key "category_expenses", "categories"
   add_foreign_key "category_expenses", "expenses"
   add_foreign_key "expenses", "users", column: "author_id"
+  add_foreign_key "reservations", "cars"
 end

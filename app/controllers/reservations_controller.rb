@@ -57,7 +57,7 @@ class ReservationsController < ApplicationController
     # Explicitly set user_id
     @reservation.user_id = @user.id
 
-    @reservation.car_ids = Array(params[:reservation][:car_ids]).reject(&:empty?)
+    # @reservation.car_ids = Array(params[:reservation][:car_ids]).reject(&:empty?)
 
     respond_to do |format|
       if @reservation.save

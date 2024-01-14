@@ -26,7 +26,7 @@
         </div>
         <div class="user-details">
           <h2 class="username"><%= link_to user.name, user_path(user) %></h2>
-          <p class="item-count">Number of operations: <%= user.expenses.count %></p>
+          <p class="item-count">Number of reservations: <%= user.reservations.count %></p>
         </div>
       </li>
     <% end %>

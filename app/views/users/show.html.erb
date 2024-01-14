@@ -1,23 +1,23 @@
-<%= render "shared/header_categories" %>
+<%= render "shared/backend/header_cars" %>
 <div class="user-list">
   <ul class="user-posts">
-    <% @categories.each do |category| %>
+    <% @cars.each do |car| %>
       
         <div class="item">
-          <% if category.icon.attached? %>
-            <%= image_tag category.icon, style: 'width: 50px; height: 50px;' %>
+          <% if car.icon.attached? %>
+            <%= image_tag car.icon, style: 'width: 50px; height: 50px;' %>
           <% end %>
 
           <div class="item-details">
             <strong class="details-heading">
-              <%= link_to category.name, user_category_path(@user, category) %> 
-              $<%= category.total_expense_amount %>
+              <%= link_to car.name, user_car_path(@user, car) %> 
+              $<%= car.total_reservation_amount %>
             </strong>
-            <small><%= category.created_at %></small>
+            <small><%= car.created_at %></small>
           </div>
         </div>
       
     <% end %>
   </ul>
 </div>
-<%= render "shared/footer" %>
+<%= render "shared/backend/footer" %>
