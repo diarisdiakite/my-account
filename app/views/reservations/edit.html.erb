@@ -1,0 +1,10 @@
+<h1>Editing reservation</h1>
+
+<%= render "form", reservation: @reservation %>
+
+<br>
+
+<div>
+  <%= link_to "Show this reservation", user_car_reservation_path(user_id: @user.id, car_id: @car.id, id: @reservation.id) %> |
+  <%= link_to "Back to reservations", user_car_reservations_path(user_id: @user.id, car_id: @car.id) %>
+</div>

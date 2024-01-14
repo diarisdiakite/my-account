@@ -80,6 +80,9 @@ class ExpensesController < ApplicationController
     # @expense = Expense.find(params[:id])
     @expense = @category.expenses.find(params[:id])
 
+    category_ids = Array(params[:expense][:category_ids]).reject(&:empty?)
+    @expense.category_ids = category_ids
+
     respond_to do |format|
       if @expense.update(expense_params)
         format.html { redirect_to user_category_expense_url(@user, @category, @expense), notice: 'Expense was successfully updated.' }

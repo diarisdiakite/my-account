@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @reservation %>
+
+<div>
+  <%= link_to "Edit this reservation", edit_user_car_reservation_path(@user, @car, @reservation) %> |
+  <%= link_to "Back to reservations", user_car_reservations_path(user_id: @user.id, car_id: @car.id) %>
+  <%= button_to 'Delete this reservation', user_car_reservation_path(@user, @car, @reservation), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
+</div>

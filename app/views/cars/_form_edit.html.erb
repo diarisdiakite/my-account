@@ -1,0 +1,28 @@
+<div class="all-form">
+<%= form_with(model: [current_user, @car], url: user_car_path(current_user, @car), method: :patch) do |form| %>
+  <% if @car.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+      <ul>
+        <% @car.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icon, style: "display: block" %>
+    <%= form.file_field :icon %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

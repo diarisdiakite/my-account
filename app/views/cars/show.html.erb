@@ -1,0 +1,46 @@
+<div id="<%= dom_id @car %>">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render 'shared/header' %>
+
+  <div class="view-item-details">
+    <div class="view-icon">
+      <% if @car.icon.attached? %>
+        <%= image_tag @car.icon, style: 'width: 10rem; height: 10rem;' %>
+      <% end %>
+    </div>
+    <div class="my-flex">
+      <strong>
+        <%= link_to @car.name, user_car_path(@user, @car) %> 
+      </strong>
+      <small>
+        <%= button_to 'Delete this car', [@user, @car], method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
+        <%= link_to 'Edit this car', edit_user_car_path(user_id: @user.id, car_id: @car&.id), class: 'button-white' %>
+        <%= link_to 'Add a New Reservation', new_user_car_reservation_path(user_id: @user.id, car_id: @car&.id), class: 'button-white' %>
+      </small>
+    </div>
+  </div>
+
+  <div class="">
+    <ul>
+      <% @car.reservations.each do |reservation| %>
+        <div class="view-item">
+          <li class="my-flex">
+            <%= link_to reservation.name, user_car_reservation_path(@user, @car, reservation) %>
+            <span class="left"><%= time_ago_in_words(reservation.created_at) %></span>
+            <% if can? :destroy, reservation %>
+              <%= button_to 'Delete this reservation', url_for([@user, @car, reservation]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
+              <%= link_to 'Edit this reservation', edit_user_car_reservation_path(@user, @car, reservation), class: 'button-white' %>
+            <% end %>
+          </li>
+          <li>$<%= reservation.amount %></li>
+        </div>
+      <% end %>
+    </ul>
+  </div> 
+
+  <div class="view-total-payment">
+    <%= "TOTAL PAYMENT" %>
+    $<%= @car.total_reservation_amount %>
+  </div>
+</div>

@@ -22,7 +22,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    # @category = current_user.categories.new(category_params)
     @user = current_user
     @category = current_user.categories.new
   end

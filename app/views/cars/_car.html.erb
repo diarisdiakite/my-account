@@ -1,0 +1,15 @@
+<div id="<%= dom_id car %>">
+  <div class="item">
+    <% if car.icon.attached? %>
+      <%= image_tag car.icon, style: 'width: 50px; height: 50px;' %>
+    <% end %>
+
+    <div class="item-details">
+      <strong class="details-heading">
+        <%= link_to car.name, user_car_path(@user, car) %> 
+        $<%= car.total_expense_amount %>
+      </strong>
+      <small><%= time_ago_in_words(car.created_at) %></small>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :categories do
       resources :expenses #, shallow: true
     end
+    resources :cars do
+      resources :reservations
+    end
     # resources :expenses, only: [:update, :destroy]
   end
     

@@ -1,0 +1,10 @@
+<h1>Editing car</h1>
+
+<%= render "form_edit", car: @car %>
+
+<br>
+
+<div>
+  <%= link_to "Show this car", user_car_path(@user, @car) %> |
+  <%= link_to "Back to cars", user_cars_path(@user) %>
+</div>

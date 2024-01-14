@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Expenses</h1>
+
+<div id="reservations">
+  <% @cars.each do |car| %>
+    <h2><%= car.name %></h2>
+    <% car.reservations.each do |reservation| %>
+      <%= render partial: 'reservation', locals: { reservation: reservation } %>
+      <p>
+        <%= link_to "Show this reservation", user_car_reservation_path(@user, @car, reservation) %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
