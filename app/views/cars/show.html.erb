@@ -1,7 +1,7 @@
 <div id="<%= dom_id @car %>">
   <p style="color: green"><%= notice %></p>
 
-  <%= render 'shared/backend/header' %>
+  <%= render 'shared/backend/header_cars' %>
 
   <div class="view-item-details">
     <div class="view-icon">
@@ -26,14 +26,14 @@
       <% @car.reservations.each do |reservation| %>
         <div class="view-item">
           <li class="my-flex">
-            <%= link_to reservation.name, user_car_reservation_path(@user, @car, reservation) %>
+            <%= link_to reservation.created_at, user_car_reservation_path(@user, @car, reservation) %>
             <span class="left"><%= time_ago_in_words(reservation.created_at) %></span>
             <% if can? :destroy, reservation %>
               <%= button_to 'Delete this reservation', url_for([@user, @car, reservation]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-white', style: 'margin-right: 10px;' %>
               <%= link_to 'Edit this reservation', edit_user_car_reservation_path(@user, @car, reservation), class: 'button-white' %>
             <% end %>
           </li>
-          <li>$<%= reservation.amount %></li>
+          <li>$<%= reservation.total_amount_payable %></li>
         </div>
       <% end %>
     </ul>

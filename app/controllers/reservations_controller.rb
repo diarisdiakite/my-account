@@ -10,7 +10,8 @@ class ReservationsController < ApplicationController
   # GET /reservations or /reservations.json
   def index
     @user = User.find(params[:user_id])
-    @cars = @user.cars
+    # @cars = @user.cars
+    @cars = Car.all
     @car = @cars.find(params[:car_id]) if params[:car_id].present?
     @reservations = @car.present? ? @car.reservations : Reservation.where(car: @cars)
   end
@@ -19,7 +20,8 @@ class ReservationsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @reservation = Reservation.find(params[:id])
-    @cars = @user.cars
+    # @cars = @user.cars
+    @cars = Car.all
     @car = @cars.find(params[:car_id]) if params[:car_id].present?
 
     authorize! :show, @reservation
@@ -35,8 +37,9 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @user = User.find(params[:user_id])
-    @car = @user.cars.find(params[:car_id])
     @cars = Car.all
+    @car = @cars.find(params[:car_id])
+    @cities = City.all  
     @reservation = @car.reservations.build(user: @user)
   end
 
@@ -44,20 +47,21 @@ class ReservationsController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @reservation = Reservation.find(params[:id])
-    @cars = @user.cars
+    @cars = Car.all
+    @cities = City.all
     @car = @cars.find(params[:car_id]) if params[:car_id].present?
   end
 
   # POST /reservations or /reservations.json
   def create
     @user = User.find(params[:user_id])
-    @car = @user.cars.find(params[:car_id])
+    @cities = City.all
+    @cars = Car.all
+    # @car = @user.cars.find(params[:car_id])
     @reservation = @car.reservations.new(reservation_params)
 
     # Explicitly set user_id
     @reservation.user_id = @user.id
-
-    # @reservation.car_ids = Array(params[:reservation][:car_ids]).reject(&:empty?)
 
     respond_to do |format|
       if @reservation.save
@@ -76,16 +80,14 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
     @user = User.find(params[:user_id])
-    @car = @user.cars.find(params[:car_id])
-    # @reservation = Reservation.find(params[:id])
+    @city = City.all
+    @cars = Car.all
+    @car = @cars.find(params[:car_id])
     @reservation = @car.reservations.find(params[:id])
-
-    car_ids = Array(params[:reservation][:car_ids]).reject(&:empty?)
-    @reservation.car_ids = car_ids
 
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.html { redirect_to user_car_reservation_url(@user, @car, @reservation), notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to user_car_reservation_path(@user, @car, @reservation), notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -112,6 +114,10 @@ class ReservationsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end

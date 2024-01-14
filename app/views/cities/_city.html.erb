@@ -1,2 +1,11 @@
 <div id="<%= dom_id city %>">
+  <div class="item">
+    <div class="item-details">
+      <strong class="details-heading">
+        <%= link_to city.name, city_path(city) %> 
+        <%= city.description %>
+      </strong>
+      <small><%= time_ago_in_words(city.created_at) %></small>
+    </div>
+  </div>
 </div>

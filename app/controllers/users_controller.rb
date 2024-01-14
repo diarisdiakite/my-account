@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @cars = @user.cars
-    # @categories = @user.categories
+    @categories = @user.categories
     # Other logic as needed
     p @user
     p @cars

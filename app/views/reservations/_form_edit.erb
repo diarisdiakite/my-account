@@ -1,5 +1,5 @@
 <div class="all-form">
-<%= form_with(model: [@user, @car, @reservation], url: user_car_reservations_path(@user, @car), local: true) do |form| %>
+<%= form_with(model: [@user, @car, @reservation], url: user_car_reservation_path(@user, @car, @reservation), local: true) do |form| %>
   <% if reservation.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>

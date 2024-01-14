@@ -8,7 +8,7 @@ class Car < ApplicationRecord
     validate :validate_icon_presence
   
     def total_reservation_amount
-      reservations.any? ? reservations.sum(:amount) : 0
+      reservations.any? ? reservations.sum(:total_amount_payable) : 0
     end
   
     private

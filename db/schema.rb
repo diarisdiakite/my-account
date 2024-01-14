@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_025124) do
   end
 
   create_table "cars", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name"
     t.string "icon"
     t.string "description"
@@ -55,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_025124) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -92,14 +94,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_025124) do
   end
 
   create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.bigint "car_id", null: false
-    t.string "city", null: false
+    t.bigint "city_id", null: false
     t.integer "hourly_fee"
     t.integer "total_amount_payable"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_reservations_on_car_id"
+    t.index ["city_id"], name: "index_reservations_on_city_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,9 +131,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_14_025124) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cars", "users"
   add_foreign_key "categories", "users"
   add_foreign_key "category_expenses", "categories"
   add_foreign_key "category_expenses", "expenses"
   add_foreign_key "expenses", "users", column: "author_id"
   add_foreign_key "reservations", "cars"
+  add_foreign_key "reservations", "cities"
+  add_foreign_key "reservations", "users"
 end

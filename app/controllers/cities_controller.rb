@@ -65,6 +65,6 @@ class CitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def city_params
-      params.fetch(:city, {})
+      params.require(:city).permit(:name, :continent, :description)
     end
 end

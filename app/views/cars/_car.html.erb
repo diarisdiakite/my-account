@@ -7,7 +7,7 @@
     <div class="item-details">
       <strong class="details-heading">
         <%= link_to car.name, user_car_path(@user, car) %> 
-        $<%= car.total_expense_amount %>
+        $<%= car.total_reservation_amount %>
       </strong>
       <small><%= time_ago_in_words(car.created_at) %></small>
     </div>
