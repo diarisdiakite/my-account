@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  resources :cities
+  resources :cars, only: [:index, :view]
+
   resources :users do
     resources :categories do
       resources :expenses #, shallow: true

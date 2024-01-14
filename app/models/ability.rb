@@ -37,6 +37,9 @@ class Ability
       can :manage, Category, user_id: user.id
       can :manage, Expense, author_id: user.id
       can :manage, CategoryExpense, category: { user_id: user.id }
+      can :manage, Car, user_id: user.id
+      can :manage, Reservation, user_id: user.id
+      can :manage, City, user_id: user.id
     end
   end
 end

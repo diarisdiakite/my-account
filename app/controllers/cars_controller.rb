@@ -16,8 +16,8 @@ class CarsController < ApplicationController
     @user = current_user
     @cars = @user.cars
     @car = @user.cars.find(params[:id])
-    @expenses = @car.expenses
-    @expense = @user.cars.flat_map(&:expenses).find(params[:id])
+    @reservations = @car.reservations
+    @reservation = @user.cars.flat_map(&:reservations).find(params[:id])
   end
 
   # GET /cars/new
@@ -70,8 +70,8 @@ class CarsController < ApplicationController
     @user = current_user
     @car = @user.cars.find(params[:id])
 
-    # Update foreign key references in car_expenses table
-    @car.car_expenses.destroy_all
+    # Update foreign key references in car_reservations table
+    @car.car_reservations.destroy_all
   
     # Then destroy the car
     @car.destroy
@@ -102,7 +102,6 @@ class CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:name, :icon, expense_ids: [])
+    params.require(:car).permit(:name, :icon, :description, :facebook, :twitter, :website, :finance_fee, :ption_to_purchase_fee, :total_amount_payable, :duration)
   end
 end
-  
