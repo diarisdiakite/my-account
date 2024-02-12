@@ -3,7 +3,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#table-of-contents)
-- [📖 my-account ](#my-account)
+- [📖 my_booking_app_back_end ](#my_booking_app_back_end)
   - [🛠 Built With ](#built-with)
     - [Tech Stack ](#tech-stack)
     - [Key Features ](#key-features)
@@ -29,9 +29,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [my-account](#my-account) <a name="about-project"></a>
+# 📖 [my_booking_app_back_end](#my_booking_app_back_end) <a name="about-project"></a>
 
-The my-account application is a fully functional website that allow you to manage your expenses. The website was created with Ruby on Rails. 
+The my_booking_app_back_end application is a fully functional backend application that allow you to manage the booking of luxurious cars application backend. The application was created with Ruby on Rails. 
+
+Project front end application link: https://github.com/diarisdiakite/my-booking-app/
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -40,13 +42,19 @@ The my-account application is a fully functional website that allow you to manag
 The following technologies have been used for the project development.
 
 <details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://https://fr.legacy.reactjs.org/">React</a></li>
+  </ul>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
+  <summary>Database</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Rails.js</a></li>
+    <li><a href="https://www.postgresql.org/">Postgres</a></li>
   </ul>
+  
 </details>
 <!-- Features -->
 
@@ -54,18 +62,14 @@ The following technologies have been used for the project development.
 
 The key features of the application are:
 
-- Create, Read and Delete expenses and categories
-- Authentication with Devise
-- Authorization rules for users
+- Create, Read and Delete items and subitems
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 ## 🚀 Live demo <a name="live-demo"></a>
 
-Please watch the presentation video at this [link](https://www.loom.com/share/678be0ed9a374054bc2f6ba576425e89)
-
-You can follow this [link](https://my-account-pf88.onrender.com/) to have a demo of my_account_app.
+coming soon
 
 <!-- GETTING STARTED -->
 
@@ -87,7 +91,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:diarisdiakite/my-account
+  git clone git@github.com:diarisdiakite/my_booking_app_back_end
 ```
 
 
@@ -96,7 +100,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd my-account
+  cd my_booking_app_back_end
   gem install
 ```
 
@@ -114,12 +118,12 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```sh
-  bin/rails test test/models/my-account_test.rb
+  bin/rails test test/models/my_booking_app_back_end_test.rb
 ```
 
 ### Deployment
 
-You can deploy the my-account application using: google cloud, Microsoft Azure, Netlify, github, render and other platform by giving credit on using our template and/or contribute via pull requests (read more in the contributing section).
+You can deploy the my_booking_app_back_end application using: google cloud, Microsoft Azure, Netlify, github, render and other platform by giving credit on using our template and/or contribute via pull requests (read more in the contributing section).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,6 +136,13 @@ You can deploy the my-account application using: google cloud, Microsoft Azure, 
 GitHub: [@Didy](https://www.github.com/diarisdiakite)
 <br> Twitter: [@diarisdiakite](https://www.twitter.com/diarisd)
 <br>LinkedIn: [@diarisdiakite](https://www.linkedin.com/in/diariatou-diakite-67ab80165/)
+<br><br>
+
+👤 Pablo
+
+GitHub: [@Pablo](https://github.com/thasipablo)
+<br> Twitter: [@pablo](https://twitter.com/thasipablo_)
+<br>LinkedIn: [@pablo](https://www.linkedin.com/in/thasipablo/)
 <br><br>
 
 
@@ -153,7 +164,7 @@ GitHub: [@Didy](https://www.github.com/diarisdiakite)
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/diarisdiakite/my-account/issues).
+Feel free to check the [issues page](https://github.com/diarisdiakite/my_booking_app_back_end/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,7 +172,7 @@ Feel free to check the [issues page](https://github.com/diarisdiakite/my-account
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like the [my-account]() project, you can support our work. Please, visit [diaridiakite personal page](https://diarisdiakite.github.io/my-portfolio/), follow me on my social media handles [@linkedin.com/diarisd](https://www.linkedin.com/in/diariatou-diakite-67ab80165/) and [@twitter.com/diarisd]().
+If you like the [my_booking_app_back_end]() project, you can support our work. Please, visit [diaridiakite personal page](https://diarisdiakite.github.io/my-portfolio/), follow us on our social media handles [@linkedin.com/diarisd](https://www.linkedin.com/in/diariatou-diakite-67ab80165/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,7 +182,7 @@ If you like the [my-account]() project, you can support our work. Please, visit 
 
 I would like to thank the Microverse community to inspire and encourage everyday programmers and aspiring programmers.
 
-The original design of this application is from [Gregoire Vella](https://www.behance.net/gregoirevella) from [Behance](https://creativecommons.org/licenses/by-nc/4.0/).
+The original design of this application is from [Murat Korkmaz](https://www.behance.net/muratk) from [Behance](https://creativecommons.org/licenses/by-nc/4.0/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

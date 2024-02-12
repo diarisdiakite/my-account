@@ -72,15 +72,14 @@ class CategoriesController < ApplicationController
 
     # Update foreign key references in category_expenses table
     @category.category_expenses.destroy_all
-  
+
     # Then destroy the category
     @category.destroy
-  
+
     respond_to do |format|
       format.html { redirect_to user_categories_url(@user), notice: 'Category was successfully destroyed.' and return }
       format.json { head :no_content }
     end
-
 
     @category.destroy
     respond_to do |format|

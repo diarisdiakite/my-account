@@ -41,6 +41,7 @@ class CarsController < ApplicationController
     respond_to do |format|
       if @car.save
         format.html { redirect_to user_url(@user), notice: 'Car was successfully created.' }
+        # format.html { redirect_to frontendUrls[:reactCarsIndex], notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -72,15 +73,14 @@ class CarsController < ApplicationController
 
     # Update foreign key references in car_reservations table
     @car.car_reservations.destroy_all
-  
+
     # Then destroy the car
     @car.destroy
-  
+
     respond_to do |format|
       format.html { redirect_to user_cars_url(@user), notice: 'Car was successfully destroyed.' and return }
       format.json { head :no_content }
     end
-
 
     @car.destroy
     respond_to do |format|
@@ -102,6 +102,7 @@ class CarsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def car_params
-    params.require(:car).permit(:name, :icon, :description, :facebook, :twitter, :website, :finance_fee, :ption_to_purchase_fee, :total_amount_payable, :duration)
+    params.require(:car).permit(:name, :icon, :description, :facebook, :twitter, :website, :finance_fee,
+                                :ption_to_purchase_fee, :total_amount_payable, :duration)
   end
 end

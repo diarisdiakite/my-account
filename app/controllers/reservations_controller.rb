@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   before_action :set_car, only: %i[index new create]
   before_action :set_reservation, only: %i[show edit update destroy]
   # load_and_authorize_resource
-  
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   # GET /reservations or /reservations.json
@@ -27,11 +27,11 @@ class ReservationsController < ApplicationController
     authorize! :show, @reservation
 
     # You may want to adjust the logic here based on your requirements
-    if @car.present?
-      @reservations = @car.reservations
-    else
-      @reservations = @reservation.cars.map(&:reservations)
-    end
+    @reservations = if @car.present?
+                      @car.reservations
+                    else
+                      @reservation.cars.map(&:reservations)
+                    end
   end
 
   # GET /reservations/new
@@ -39,7 +39,7 @@ class ReservationsController < ApplicationController
     @user = User.find(params[:user_id])
     @cars = Car.all
     @car = @cars.find(params[:car_id])
-    @cities = City.all  
+    @cities = City.all
     @reservation = @car.reservations.build(user: @user)
   end
 
@@ -87,7 +87,10 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.html { redirect_to user_car_reservation_path(@user, @car, @reservation), notice: 'Reservation was successfully updated.' }
+        format.html do
+          redirect_to user_car_reservation_path(@user, @car, @reservation),
+                      notice: 'Reservation was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -1,3 +1,11 @@
+<button onclick="openFormModal()">Open Form</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+
+
+
 <div class="all-form">
 <%= form_with(model: [user, car], url: user_cars_path(user)) do |form| %>
   <% if car.errors.any? %>
@@ -67,3 +75,23 @@
   </div>
 <% end %>
 </div>
+
+
+ </div>
+</div>
+
+<script>
+// JavaScript function to open the modal
+function openFormModal() {
+  var modal = document.getElementById('myModal');
+  modal.style.display = 'block';
+}
+
+// Close the modal if the user clicks outside of it
+window.onclick = function(event) {
+  var modal = document.getElementById('myModal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+</script>

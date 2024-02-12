@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   before_action :set_category, only: %i[index new create]
   before_action :set_expense, only: %i[show edit update destroy]
   # load_and_authorize_resource
-  
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   # GET /expenses or /expenses.json
@@ -25,11 +25,11 @@ class ExpensesController < ApplicationController
     authorize! :show, @expense
 
     # You may want to adjust the logic here based on your requirements
-    if @category.present?
-      @expenses = @category.expenses
-    else
-      @expenses = @expense.categories.map(&:expenses)
-    end
+    @expenses = if @category.present?
+                  @category.expenses
+                else
+                  @expense.categories.map(&:expenses)
+                end
   end
 
   # GET /expenses/new
@@ -85,7 +85,9 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to user_category_expense_url(@user, @category, @expense), notice: 'Expense was successfully updated.' }
+        format.html do
+          redirect_to user_category_expense_url(@user, @category, @expense), notice: 'Expense was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @expense }
       else
         format.html { render :edit, status: :unprocessable_entity }

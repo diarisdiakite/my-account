@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :cities
-  resources :cars, only: [:index, :view]
+  resources :cars, only: [:index, :view, :new, :create, :edit, :update, :destroy]
 
   resources :users do
     resources :categories do
